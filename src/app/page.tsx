@@ -66,7 +66,7 @@ function App() {
   )
 }
  
-export function Profile() {
+function Profile() {
   const { address, connector, isConnected } = useAccount()
   console.log('isConnected',isConnected)
   const { data: ensName } = useEnsName({ address })
