@@ -18,7 +18,8 @@ import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
 import { InjectedConnector } from 'wagmi/connectors/injected'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
- 
+import { NextPage } from 'next';
+
 // Configure chains & providers with the Alchemy provider.
 // Two popular providers are Alchemy (alchemy.com) and Infura (infura.io)
 
@@ -58,7 +59,7 @@ const config = createConfig({
 })
  
 // Pass config to React Context Provider
-function App() {
+const App:NextPage<{}> = () =>{
   return (
     <WagmiConfig config={config}>
       <Profile />
@@ -189,7 +190,7 @@ function SignInButton({
   )
 }
 
-export function Profile() {
+function Profile() {
   const { isConnected } = useAccount()
   console.log('isConnected',isConnected)
   const [state, setState] = React.useState<{
